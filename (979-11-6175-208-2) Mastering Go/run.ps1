@@ -1,4 +1,4 @@
-$image = "golang:1.15-local"
+$image = "mastering-go:local"
 
 docker image build -t $image .
 echo ""
