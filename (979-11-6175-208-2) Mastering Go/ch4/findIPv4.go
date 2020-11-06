@@ -10,10 +10,11 @@ import (
 	"regexp"
 )
 
+var part = "(25[0-5]|2[0-4][0-9]|1[0-9][0-9]|[1-9]?[0-9])"
+var pattern = part + "\\." + part + "\\." + part + "\\." + part
+var re = regexp.MustCompile(pattern)
+
 func findIP(input string) string {
-	part := "(25[0-5]|2[0-4][0-9]|1[0-9][0-9]|[1-9]?[0-9])"
-	pattern := part + "\\." + part + "\\." + part + "\\." + part
-	re := regexp.MustCompile(pattern)
 	return re.FindString(input)
 }
 

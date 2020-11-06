@@ -5,6 +5,7 @@ import (
 	"fmt"
 	"os"
 	"strings"
+	"log"
 )
 
 type myElement struct {
@@ -15,6 +16,7 @@ type myElement struct {
 
 var DATA = make(map[string]myElement)
 
+
 func ADD(k string, n myElement) bool {
 	if k == "" {
 		return false
@@ -22,6 +24,7 @@ func ADD(k string, n myElement) bool {
 
 	if LOOKUP(k) == nil {
 		DATA[k] = n
+		log.Printf("Added new item with key %s, value %s\n", k, n)
 		return true
 	}
 
@@ -31,6 +34,7 @@ func ADD(k string, n myElement) bool {
 func DELETE(k string) bool {
 	if LOOKUP(k) != nil {
 		delete(DATA, k)
+		log.Printf("Removed item with key %s\n", k)
 		return true
 	}
 	return false
@@ -40,6 +44,7 @@ func LOOKUP(k string) *myElement {
 	_, ok := DATA[k]
 	if ok {
 		n := DATA[k]
+		log.Printf("Someone looked up key %s\n", k)
 		return &n
 	} else {
 		return nil
@@ -48,6 +53,7 @@ func LOOKUP(k string) *myElement {
 
 func CHANGE(k string, n myElement) bool {
 	DATA[k] = n
+	log.Printf("Item with key %s updated to %s\n", k, n)
 	return true
 }
 
@@ -58,6 +64,13 @@ func PRINT() {
 }
 
 func main() {
+	f, err := os.OpenFile("log.txt", os.O_RDWR | os.O_CREATE | os.O_APPEND, 0666) 
+	if err != nil {
+		fmt.Println("Could not open log file; err=%v", err)
+	}
+	defer f.Close()
+	log.SetOutput(f)
+
 	scanner := bufio.NewScanner(os.Stdin)
 	for scanner.Scan() {
 		text := scanner.Text()
