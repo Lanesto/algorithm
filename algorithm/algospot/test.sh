@@ -14,11 +14,17 @@ problem=$(echo $1 | sed -E 's/(.*)_.*\..*/\1/')
 # b
 # [out]
 # 1
+# 
 # e.g) BOGGLE.dat
 data_file="$problem.dat"
 if [ ! -f $data_file ]; then
 	echo "Requires data file but does not exists: $data_file"
 	exit 1
+fi
+
+# Append newline if not ends with newline
+if [ ! "$(tail -c 1 $data_file)" == "" ]; then
+	echo '' >> $data_file
 fi
 
 echo "Testing $program with $data_file"
