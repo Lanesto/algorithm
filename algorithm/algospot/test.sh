@@ -1,6 +1,7 @@
 #!/bin/bash
 # A simple test automation shell script
 
+
 # Arguments:
 # $1: filename like: {problem}_{lang}.{extension}
 #     e.g) BOGGLE_go.go
@@ -41,7 +42,7 @@ result_tmpfile=$(mktemp)
 extension=$(echo $1 | sed 's/.*\.//')
 if [ "$extension" == "go" ]; then
 	go run $program < $input_tmpfile > $result_tmpfile
-	diff -q $result_tmpfile $output_tmpfile &> /dev/null
+	diff -q --strip-trailing-cr $result_tmpfile $output_tmpfile &> /dev/null
 	if [ "$?" == "0" ]; then
 		echo "Test is done."
 	else
