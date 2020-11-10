@@ -5,6 +5,7 @@ echo ""
 
 docker container run -it --rm `
     -v ${PWD}:/workspace `
+    -p 8080:8080 `
     -w /workspace `
     $image /bin/bash
 

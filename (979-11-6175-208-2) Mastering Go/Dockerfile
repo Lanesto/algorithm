@@ -4,7 +4,7 @@ USER root
 VOLUME /workspace
 
 RUN apt update && \
-    apt install -y vim rsyslog strace
+    apt install -y vim rsyslog strace sqlite3
 
 WORKDIR /workspace
     
