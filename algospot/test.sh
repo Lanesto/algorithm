@@ -6,7 +6,7 @@
 # $1: filename like: {problem}_{lang}.{extension}
 #     e.g) BOGGLE_go.go
 program=$1
-problem=$(echo $1 | sed -E 's/(.*)_.*\..*/\1/')
+problem=$(echo $program | sed -E 's/(.*)_.*\..*/\1/')
 
 # Automatically find datafile; name should be like: {problem}.dat
 # MUST datafile have block [in], [out] for work becuz no exception is handled
@@ -39,7 +39,7 @@ sed -n '/[out]/,$ p' $data_file | sed -n '2,$ p' > $output_tmpfile
 # Run program and get output
 # For testing the program should write answers to stdout
 result_tmpfile=$(mktemp)
-extension=$(echo $1 | sed 's/.*\.//')
+extension=$(echo $program | sed 's/.*\.//')
 if [ "$extension" == "go" ]; then
 	go run $program < $input_tmpfile > $result_tmpfile
 	diff -q --strip-trailing-cr $result_tmpfile $output_tmpfile &> /dev/null
