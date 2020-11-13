@@ -1,6 +1,5 @@
 FROM golang:1.15
 
-USER root
 VOLUME /workspace
 
 RUN apt update && \
