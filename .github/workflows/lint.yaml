@@ -27,7 +27,7 @@ jobs:
         go get -v golang.org/x/lint/golint
 
     - name: Run vet and lint
-      working-directory: ./study/algorithm/
+      working-directory: ./algorithm/
       run: |
         go vet ./...
         golint -set_exit_status ./...
