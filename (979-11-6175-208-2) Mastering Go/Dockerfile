@@ -8,9 +8,14 @@ RUN apt update && \
         rsyslog \
         strace \
         sqlite3 \
-        graphviz
+        graphviz \
+        netcat \
+        dnsutils \
+        net-tools
 
-RUN go get -v golang.org/x/tools/cmd/godoc
+RUN go get -v \
+        golang.org/x/tools/cmd/godoc \
+        golang.org/x/lint/golint
 
 WORKDIR /workspace
     
