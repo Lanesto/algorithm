@@ -4,7 +4,12 @@ USER root
 VOLUME /workspace
 
 RUN apt update && \
-    apt install -y vim strace
+    apt install -y \
+        vim \
+        strace \
+        dos2unix
+
+RUN go get -v golang.org/x/lint/golint
 
 WORKDIR /workspace
 
