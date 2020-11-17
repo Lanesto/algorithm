@@ -4,10 +4,9 @@ import "fmt"
 
 // Board cell type definition
 const (
-	BLOCK_WHITE = 0
-	BLOCK_BLACK = 1
+	white = 0
+	black = 1
 )
-
 
 // Define relative positions of blocks
 // blockShapes[blockType: 0..3][index: 0..2][xy: x=0, y=1]
@@ -38,9 +37,9 @@ func setCover(board *[][]int, x, y, blockType int, set bool) bool {
 			blockPlaced = false
 		} else {
 			if set {
-				(*board)[ny][nx] += 1
+				(*board)[ny][nx]++
 			} else {
-				(*board)[ny][nx] -= 1
+				(*board)[ny][nx]--
 			}
 			// Check whether placed block is overlapping
 			if (*board)[ny][nx] > 1 {
@@ -57,7 +56,7 @@ func countCoverings(board *[][]int) int {
 	x, y := -1, -1
 	for i := 0; i < len(*board); i++ {
 		for j := 0; j < len((*board)[0]); j++ {
-			if (*board)[i][j] == BLOCK_WHITE {
+			if (*board)[i][j] == white {
 				x, y = j, i
 				break
 			}
@@ -86,23 +85,23 @@ func countCoverings(board *[][]int) int {
 
 func main() {
 	var C int
-	fmt.Scanf("%d\n", &C)
+	fmt.Scan(&C)
 	for ; C > 0; C-- {
 		var H, W int
-		fmt.Scanf("%d %d\n", &H, &W)
+		fmt.Scan(&H, &W)
 
 		board := make([][]int, H)
 		for i := 0; i < H; i++ {
 			var rawRow string
-			fmt.Scanln(&rawRow)
+			fmt.Scan(&rawRow)
 
 			// Convert given string-based board to integer-based one
 			row := make([]int, len(rawRow))
 			for j, c := range rawRow {
 				if c == '.' {
-					row[j] = BLOCK_WHITE
+					row[j] = white
 				} else {
-					row[j] = BLOCK_BLACK
+					row[j] = black
 				}
 			}
 			board[i] = row

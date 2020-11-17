@@ -2,12 +2,12 @@ package main
 
 import "fmt"
 
-const MAX_NUM_STUDENT = 10
+const maxStudents = 10
 
 // Values not change during running for single case
 var numStudents int
-var areFriends [MAX_NUM_STUDENT][MAX_NUM_STUDENT]bool
-var isTaken [MAX_NUM_STUDENT]bool
+var areFriends [maxStudents][maxStudents]bool
+var isTaken [maxStudents]bool
 
 // Make pair who has no partner yet, lowest index first
 func countPairings() int {
@@ -35,7 +35,7 @@ func countPairings() int {
 
 func main() {
 	var C int
-	fmt.Scanf("%d", &C)
+	fmt.Scan(&C)
 	for ; C > 0; C-- {
 		var n, m int
 		fmt.Scan(&n); fmt.Scan(&m)
