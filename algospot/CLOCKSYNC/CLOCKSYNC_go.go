@@ -49,9 +49,8 @@ func alignClocks(clockState *[]int, switchToPush int) int {
 	if switchToPush == numSwitches {
 		if isAllClocksAligned(clockState) {
 			return 0
-		} else {
-			return inf
 		}
+		return inf
 	}
 
 	// Push switches i(0~3) times cuz it will back to original state
@@ -76,7 +75,7 @@ func main() {
 	fmt.Scan(&C)
 	for ; C > 0; C-- {
 		clockState := make([]int, numClocks)
-		for i, _ := range clockState {
+		for i := range clockState {
 			fmt.Scan(&clockState[i])
 			// Set 12 to 0 (it is much easier to handle)
 			clockState[i] %= 12
