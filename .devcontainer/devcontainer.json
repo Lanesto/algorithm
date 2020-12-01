@@ -1,0 +1,25 @@
+{
+	"name": "Algorithm Workspace",
+	"build": {
+		"context": "..",
+		"dockerfile": "..\\Dockerfile",
+	},
+
+    "workspaceMount": "source=${localWorkspaceFolder},target=/workspace,type=bind,consistency=delegated",
+    "workspaceFolder": "/workspace",
+
+	"settings": {
+		"files.eol": "\n",
+		"terminal.integrated.shell.linux": null,
+		"python.pythonPath": "/usr/bin/python3",
+        "go.useGoProxyToCheckForToolUpdates": true,
+        "go.inferGopath": true,
+		"go.useLanguageServer": true,
+	},
+
+	"extensions": [
+		"ms-python.python",
+		"golang.go"
+	],
+
+}
