@@ -32,9 +32,9 @@ echo "Testing $program with $data_file"
 
 # Separate in/out to temporary file
 input_tmpfile=$(mktemp)
-sed -n '/[in]/,/[out]/ p' $data_file | sed -e '2,$!d' -e '$d' > $input_tmpfile
+sed -n '/\[in\]/,/\[out\]/ p' $data_file | sed -e '2,$!d' -e '$d' > $input_tmpfile
 output_tmpfile=$(mktemp)
-sed -n '/[out]/,$ p' $data_file | sed -n '2,$ p' > $output_tmpfile
+sed -n '/\[out\]/,$ p' $data_file | sed -n '2,$ p' > $output_tmpfile
 
 # Run program and get output
 # For testing the program should write answers to stdout
