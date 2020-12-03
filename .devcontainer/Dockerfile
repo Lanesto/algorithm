@@ -19,6 +19,13 @@ RUN pip3 install --no-cache-dir \
 RUN go get -v \
         golang.org/x/tools/cmd/godoc \
         golang.org/x/tools/cmd/goimports \
-        golang.org/x/lint/golint
+        golang.org/x/lint/golint \
+        golang.org/x/tools/gopls \
+        github.com/mdempsky/gocode \
+        github.com/uudashr/gopkgs/v2/cmd/gopkgs \
+        github.com/ramya-rao-a/go-outline \
+        github.com/stamblerre/gocode \
+        github.com/rogpeppe/godef \
+        github.com/sqs/goreturns
 
 RUN echo 'alias pip=pip3' >> ~/.bashrc
