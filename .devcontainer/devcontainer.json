@@ -19,7 +19,10 @@
 
 	"extensions": [
 		"ms-python.python",
-		"golang.go"
+		"golang.go",
+		"ms-toolsai.jupyter",
+		"donjayamanne.python-extension-pack",
+		"ms-python.vscode-pylance"
 	],
 
 }
