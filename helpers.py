@@ -63,4 +63,7 @@ def timeout(seconds=10):
 # Truncate given item's reprentation if it is longer than given 'n'
 def truncate(obj, n):
     s = repr(obj)
+    if n < 0:
+        return s
+
     return s[:n] + '...' if len(s) > n else s
