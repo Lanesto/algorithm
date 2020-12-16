@@ -30,7 +30,8 @@ def clock(func):
         t0 = time.time()
         result = func(*args, **kwargs)
         elapsed = time.time() - t0
-        debug_msg('[{:0.8f}] {} → {}'.format(elapsed, params, repr(result)))
+        debug_msg('[{:0.8f}] {} → {}'.format(
+            elapsed, params, truncate(repr(result), 60)))
         return result
 
     return wrapper
