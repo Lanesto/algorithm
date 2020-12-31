@@ -12,7 +12,7 @@
 		"files.eol": "\n",
 		"terminal.integrated.shell.linux": null,
 		"python.pythonPath": "/usr/bin/python3",
-        "go.useGoProxyToCheckForToolUpdates": false,
+        "go.toolsManagement.checkForUpdates": "proxy",
         "go.inferGopath": true,
 		"go.useLanguageServer": true,
 	},
