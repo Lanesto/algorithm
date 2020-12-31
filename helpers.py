@@ -2,6 +2,7 @@
 import time
 import functools
 import signal
+import typing as T
 
 DEBUG = True
 
@@ -18,18 +19,18 @@ def debug_msg(*args, **kwargs) -> None:
 
 
 # Decorator to time function speed
-def clock(func):
+def clock(func: T.Callable) -> T.Callable:
     @functools.wraps(func)
-    def wrapper(*args, **kwargs):
+    def wrapper(*args, **kwargs) -> T.Any:
         params = '{}({})'.format(
             func.__name__,
             ', '.join([repr(arg) for arg in args] +
                       [f'{k}={v}' for k, v in kwargs.items()])
         )
         params = truncate(params, 120)
-        t0 = time.time()
+        t0 = time.perf_counter()
         result = func(*args, **kwargs)
-        elapsed = time.time() - t0
+        elapsed = time.perf_counter() - t0
         debug_msg('[{:0.8f}] {} → {}'.format(
             elapsed, params, truncate(repr(result), 60)))
         return result
@@ -39,8 +40,8 @@ def clock(func):
 
 # Decorator to limit function running time
 # Returns None if timeout occurred
-def timeout(seconds=10):
-    def decorator(func):
+def timeout(seconds: float = 10) -> T.Callable:
+    def decorator(func: T.Callable) -> T.Any:
         def handler(signum, frame):
             fmt = 'function exceeded timeout ({}s)'
             raise TimeoutError(fmt.format(seconds))
@@ -62,7 +63,7 @@ def timeout(seconds=10):
 
 
 # Truncate given item's reprentation if it is longer than given 'n'
-def truncate(obj, n):
+def truncate(obj: T.Any, n: int) -> str:
     s = repr(obj)
     if n < 0:
         return s
