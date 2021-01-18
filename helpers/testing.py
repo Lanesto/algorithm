@@ -107,14 +107,14 @@ def run(func: T.Callable, test_cases: T.Dict[str, T.Any]):
         tc = temp
 
         # Run test
-        func = timeout(seconds=tc['timeout'])(func)
+        t_func = timeout(seconds=tc['timeout'])(func)
         input, expected = tc['input'], tc['expected']
         try:
             oracle = tc.get('oracle')
             assert callable(oracle), \
                 f'oracle is not callable: {oracle!r}'
 
-            result = func(*input)
+            result = t_func(*input)
             assert oracle(result, expected), \
                 f'wants {expected!r:.40} but got {result!r:.40}'
         except Exception as e:
