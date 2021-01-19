@@ -100,7 +100,8 @@ def run(entry: Entry):
     +++ output
     @@ -1,2 +1,5 @@
     -4
-    -5+1
+    -5
+    +1
     +
     +2
     +
@@ -119,8 +120,8 @@ def run(entry: Entry):
 
     sys.stdout.writelines(
         unified_diff(
-            expected.lstrip().splitlines(keepends=True),
-            output.lstrip().splitlines(keepends=True),
+            (expected.strip() + '\n').splitlines(keepends=True),
+            (output.strip() + '\n').splitlines(keepends=True),
             fromfile='expected',
             tofile='output',
         )
