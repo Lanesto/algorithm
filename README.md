@@ -1,6 +1,6 @@
 # About
 
-Algorithm study environments definition and outputs. Using Docker to run Jupyter Notebook conveniently
+Algorithm study environments definition and outputs. Working with VS Code devcontainer.
 
 ## Books used
 <img src="https://book.algospot.com/static/img/cover1-small.png" />
