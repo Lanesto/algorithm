@@ -20,7 +20,7 @@ Entry = T.Callable[[Readline], None]
 # ...
 # [out]
 # ...
-input_block = re.compile(r'^\[in\]([\d\w\s]*)\[out\]')
+input_block = re.compile(r'^\[in\]([\s\S]*)\[out\]')
 output_block = re.compile(r'\[out\]([\s\S]*)$')
 
 
