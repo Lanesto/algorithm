@@ -4,19 +4,35 @@
 		"context": "..",
 		"dockerfile": "Dockerfile",
 	},
-
     "workspaceMount": "source=${localWorkspaceFolder},target=/workspace,type=bind,consistency=delegated",
     "workspaceFolder": "/workspace",
-
 	"settings": {
 		"files.eol": "\n",
 		"terminal.integrated.shell.linux": null,
+		"editor.formatOnSave": true,
 		"python.pythonPath": "/usr/bin/python3",
+		"python.linting.enabled": true,
+		"python.linting.flake8Enabled": true,
+		"python.linting.flake8Args": [
+			"--max-line-length=80"
+		],
+		"python.linting.pylintEnabled": true,
+		"python.linting.pydocstyleEnabled": true,
+		"python.linting.mypyEnabled": true,
+		"python.linting.mypyArgs": [
+			"--ignore-missing-imports",
+			"--follow-imports=silent",
+			"--show-column-numbers"
+		],
+		"python.formatting.provider": "black",
+		"python.formatting.blackArgs": [
+			"--line-length=80"
+		],
+		"jupyter.alwaysTrustNotebooks": true,
         "go.toolsManagement.checkForUpdates": "proxy",
         "go.inferGopath": true,
 		"go.useLanguageServer": true,
 	},
-
 	"extensions": [
 		"ms-python.python",
 		"golang.go",
@@ -24,5 +40,4 @@
 		"donjayamanne.python-extension-pack",
 		"ms-python.vscode-pylance"
 	],
-
 }
