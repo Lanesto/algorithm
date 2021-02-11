@@ -4,8 +4,8 @@
 		"context": "..",
 		"dockerfile": "Dockerfile",
 	},
-    "workspaceMount": "source=${localWorkspaceFolder},target=/workspace,type=bind,consistency=delegated",
-    "workspaceFolder": "/workspace",
+	"workspaceMount": "source=${localWorkspaceFolder},target=/workspace,type=bind,consistency=delegated",
+	"workspaceFolder": "/workspace",
 	"settings": {
 		"files.eol": "\n",
 		"terminal.integrated.shell.linux": null,
@@ -18,7 +18,7 @@
 		],
 		"python.linting.pylintEnabled": true,
 		"python.linting.pydocstyleEnabled": true,
-		"python.linting.mypyEnabled": true,
+		"python.linting.mypyEnabled": false,
 		"python.linting.mypyArgs": [
 			"--ignore-missing-imports",
 			"--follow-imports=silent",
@@ -29,8 +29,8 @@
 			"--line-length=80"
 		],
 		"jupyter.alwaysTrustNotebooks": true,
-        "go.toolsManagement.checkForUpdates": "proxy",
-        "go.inferGopath": true,
+		"go.toolsManagement.checkForUpdates": "proxy",
+		"go.inferGopath": true,
 		"go.useLanguageServer": true,
 	},
 	"extensions": [

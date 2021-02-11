@@ -1,7 +1,14 @@
+# Code style
 flake8
 pylint
 pydocstyle
 mypy
 black
+
+# Jupyter
 jupyter
 pycodestyle_magic
+
+# Useful libraries
+numpy
+tqdm
