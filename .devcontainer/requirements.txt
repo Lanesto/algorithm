@@ -5,6 +5,9 @@ pydocstyle
 mypy
 black
 
+# Testing
+pytest
+
 # Jupyter
 jupyter
 pycodestyle_magic

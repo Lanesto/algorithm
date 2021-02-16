@@ -1,5 +1,7 @@
 FROM golang:1.15
 
+ENV PYTHONPATH /workspace
+
 # Install python3
 RUN apt update && \ 
     apt install -y --no-install-recommends \
@@ -9,7 +11,5 @@ RUN apt update && \
         python3-setuptools \
     && rm -rf /var/lib/apt/lists/*
 
-# Install python requirements
 ADD .devcontainer/requirements.txt /
-RUN pip3 install --no-cache-dir --upgrade pip && \
-    pip install --no-cache-dir -r /requirements.txt
+RUN pip3 install --no-cache-dir -r /requirements.txt
