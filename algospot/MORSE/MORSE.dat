@@ -1,9 +1,11 @@
 [in]
-3
+4
 2 2 4
 4 8 13
 6 4 1
+100 100 1000000000
 [out]
 o--o
 --o-ooo-oooo
 ------oooo
+----------------------------------------------------------------------------------------------oooooooooooooo-oo-ooooooooooooooooooooooooooooooooooooooooo-oooooooooooooooooooooo-ooooo-oooooooooooo-oooo
