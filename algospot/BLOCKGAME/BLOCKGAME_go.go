@@ -22,8 +22,6 @@ var (
 	iUnknown = int8(-1)
 )
 
-var ()
-
 // Returns "WINNING" if current turn' player can win else "LOSING"
 func blockgame(board Board) string {
 
